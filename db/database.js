@@ -5,7 +5,7 @@ const mysqlConnection = mysql.createConnection({
     host: 'localhost',
     port: '3306', 
     user: 'root',
-    password: 'pi',
+    password: 'Th1nkL1nk@2021',
     database: 'SmartGreenHouse',
     multipleStatements: true
 });
@@ -15,7 +15,7 @@ mysqlConnection.connect(function (err) {
     if (err) {
         console.error(err);
     } else {
-        console.log('Database RPI Lego connected successfully!');
+        console.log('Database Saturno server connected successfully!');
     }
 });
 
