@@ -51,7 +51,7 @@ async function getSmartGreenHouseData () {
 
 axios({
   method: 'post',
-  url: 'localhost:3005/smartgreenhouses',
+  url: '/smartgreenhouses',
   data: {
     "presion": 500,
     "temp": 501,
@@ -70,10 +70,12 @@ axios({
     "valv_2": 514,
     "rocio": 515
   }
+})
+.then((response) => {
+  console.log(response);
+}, (error) => {
+  console.log(error);
 });
-
-
-
 
 router.get('/', (req, res) => {
   mysqlConnection.query('SELECT * FROM aloe_vera', (err, rows, fields) => {
