@@ -1,0 +1,31 @@
+{
+  "name": "smart-green-houses-webservice",
+  "version": "1.0.0",
+  "description": "MongoDB - Express - NodeJS Backend for Sensor Kakao IoT Solution",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinklink-dev/agroriego-backend-mongodb.git"
+  },
+  "author": "Think-Link",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinklink-dev/agroriego-backend-mongodb/issues"
+  },
+  "homepage": "https://github.com/thinklink-dev/agroriego-backend-mongodb#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "better-sqlite3": "^7.4.5",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mariadb": "^2.5.3",
+    "mongoose": "^5.11.18",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  }
+}
