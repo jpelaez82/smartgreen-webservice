@@ -52,8 +52,7 @@ async function getSmartGreenHouseData () {
 
 }
 
-//setInterval(getSmartGreenHouseData, 5000);
-getSmartGreenHouseData();
+setInterval(getSmartGreenHouseData, 5000);
 
 module.exports = router;
 

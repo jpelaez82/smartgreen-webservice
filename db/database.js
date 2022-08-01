@@ -1,23 +1,15 @@
 const mysql = require('mysql');
 
-// CONNECT TO RPI LEGO - SMARTGREENHOUSE
-// const mysqlConnection = mysql.createConnection({
-//     host: '4.tcp.ngrok.io',
-//     port: '11178', 
-//     user: 'smart',
-//     password: 'green@2022',
-//     database: 'SmartGreenHouse',
-//     multipleStatements: true
-// });
-
-/* CONNECT TO SATURNO SERVER */
+//CONNECT TO RPI LEGO - SMARTGREENHOUSE
 const mysqlConnection = mysql.createConnection({
-    host: '4.tcp.ngrok.io',
-    port: '11178',
-    user: 'root',
-    password: 'Th1nkL1nk@2021',
-    database: 'testwebservice'
+    host: 'localhost',
+    port: '3306', 
+    user: 'smart',
+    password: 'green@2022',
+    database: 'SmartGreenHouse',
+    multipleStatements: true
 });
+
 
 mysqlConnection.connect(function (err) {
     if (err) {

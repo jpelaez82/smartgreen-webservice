@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-//const smartgreenRouter = require('./routes/smartgreen_routes');
-const saturnoRuter = require('./routes/saturno_routes');
+const smartgreenRouter = require('./routes/smartgreen_routes');
+//const saturnoRuter = require('./routes/saturno_routes');
 
 // Middlewares
 app.set('port', process.env.PORT || 3005);
@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-//app.use('/smartgreenhouses', smartgreenRouter);
-app.use('/saturno', saturnoRuter);
+app.use('/smartgreenhouses', smartgreenRouter);
+//app.use('/saturno', saturnoRuter);
 
 // Start WebService
 app.listen(app.get('port'), () => {
