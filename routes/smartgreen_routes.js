@@ -49,7 +49,7 @@ async function getSmartGreenHouseData () {
 
 }
 
-router.get('/smartgreenhouses', (req, res) => {
+router.get('/', (req, res) => {
   mysqlConnection.query('SELECT * FROM aloe_vera', (err, rows, fields) => {
     if(!err) {
       res.json(rows);
