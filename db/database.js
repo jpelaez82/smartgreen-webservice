@@ -4,8 +4,8 @@ const mysql = require('mysql');
 const mysqlConnection = mysql.createConnection({
     host: 'localhost',
     port: '3306', 
-    user: 'smart',
-    password: 'green@2022',
+    user: 'root',
+    password: 'pi',
     database: 'SmartGreenHouse',
     multipleStatements: true
 });
