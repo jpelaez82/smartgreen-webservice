@@ -46,20 +46,33 @@ async function getSmartGreenHouseData () {
     });
     
   });
-
+  
 }
 
-router.post('/', (req, res) => {
-  console.log('Enviando a RPI database');
-  let sql = "INSERT INTO aloe_vera SET ?";
-  mysqlConnection.query(sql, data,(err, results) => {
-    //mysqlConnection.end();
-    if(err) throw err;
-    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-    console.log(results);
-  });
-  
+axios({
+  method: 'post',
+  url: 'localhost:3005/smartgreenhouses',
+  data: {
+    "presion": 500,
+    "temp": 501,
+    "hum": 502,
+    "dpv": 503,
+    "rayos_uv": 504,
+    "co2": 505,
+    "h_suelo1": 506,
+    "h_suelo2": 507,
+    "h_suelo3": 508,
+    "lluvia": 509,
+    "luces": 510,
+    "bomba": 511,
+    "n_tanque": 512,
+    "valv_1": 513,
+    "valv_2": 514,
+    "rocio": 515
+  }
 });
+
+
 
 
 router.get('/', (req, res) => {
