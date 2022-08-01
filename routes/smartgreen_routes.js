@@ -49,6 +49,19 @@ async function getSmartGreenHouseData () {
 
 }
 
+router.post('/', (req, res) => {
+  console.log('Enviando a RPI database');
+  let sql = "INSERT INTO aloe_vera SET ?";
+  mysqlConnection.query(sql, data,(err, results) => {
+    //mysqlConnection.end();
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    console.log(results);
+  });
+  
+});
+
+
 router.get('/', (req, res) => {
   mysqlConnection.query('SELECT * FROM aloe_vera', (err, rows, fields) => {
     if(!err) {
@@ -59,7 +72,7 @@ router.get('/', (req, res) => {
   });  
 });
 
-setInterval(getSmartGreenHouseData, 5000);
+//setInterval(getSmartGreenHouseData, 5000);
 
 module.exports = router;
 
