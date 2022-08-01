@@ -49,6 +49,16 @@ async function getSmartGreenHouseData () {
 
 }
 
+router.get('/smartgreen', (req, res) => {
+  mysqlConnection.query('SELECT * FROM aloe_vera', (err, rows, fields) => {
+    if(!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });  
+});
+
 setInterval(getSmartGreenHouseData, 5000);
 
 module.exports = router;
