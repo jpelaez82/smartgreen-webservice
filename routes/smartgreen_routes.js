@@ -34,17 +34,15 @@ async function getSmartGreenHouseData () {
   console.log(data);
 
   /* ENVIO A MSYQL RPI - SmartGreenHouse */
-  router.post('/smartgreenhouses', (req, res) => {
-    console.log('Enviando a RPI database');
-    let sql = "INSERT INTO aloe_vera SET ?";
-    mysqlConnection.query(sql, data,(err, results) => {
-      //mysqlConnection.end();
-      if(err) throw err;
-      res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-      console.log(results);
-    });
-    
-  });
+  console.log('Enviando a RPI database');
+  let sql = "INSERT INTO aloe_vera SET ?";
+  mysqlConnection.query(sql, data,(err, results) => {
+    //mysqlConnection.end();
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    console.log(results);
+  });  
+  
   
 }
 
