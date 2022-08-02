@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-app.use('/smartgreenhouses', smartgreenRouter);
+app.use('/', smartgreenRouter);
 //app.use('/saturno', saturnoRuter);
 
 // Start WebService

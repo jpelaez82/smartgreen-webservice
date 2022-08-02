@@ -3,7 +3,6 @@ const router = express.Router();
 const axios = require('axios');
 const mysqlConnection = require('../db/database.js');
 
-
 async function getSmartGreenHouseData () {
 
   let res = await axios.get('http://mercurio.thinklink.com.co:1337/smartgreenhouses');
@@ -35,7 +34,7 @@ async function getSmartGreenHouseData () {
   console.log(data);
 
   /* ENVIO A MSYQL RPI - SmartGreenHouse */
-  router.post('/', (req, res) => {
+  router.post('/smartgreenhouses', (req, res) => {
     console.log('Enviando a RPI database');
     let sql = "INSERT INTO aloe_vera SET ?";
     mysqlConnection.query(sql, data,(err, results) => {
@@ -49,34 +48,6 @@ async function getSmartGreenHouseData () {
   
 }
 
-axios({
-  method: 'post',
-  url: '/smartgreenhouses',
-  data: {
-    "presion": 500,
-    "temp": 501,
-    "hum": 502,
-    "dpv": 503,
-    "rayos_uv": 504,
-    "co2": 505,
-    "h_suelo1": 506,
-    "h_suelo2": 507,
-    "h_suelo3": 508,
-    "lluvia": 509,
-    "luces": 510,
-    "bomba": 511,
-    "n_tanque": 512,
-    "valv_1": 513,
-    "valv_2": 514,
-    "rocio": 515
-  }
-})
-.then((response) => {
-  console.log(response);
-}, (error) => {
-  console.log(error);
-});
-
 router.get('/', (req, res) => {
   mysqlConnection.query('SELECT * FROM aloe_vera', (err, rows, fields) => {
     if(!err) {
@@ -87,7 +58,7 @@ router.get('/', (req, res) => {
   });  
 });
 
-//setInterval(getSmartGreenHouseData, 5000);
+setInterval(getSmartGreenHouseData, 5000);
 
 module.exports = router;
 
