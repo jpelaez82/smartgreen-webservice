@@ -1,12 +1,22 @@
 const mysql = require('mysql');
 
-//CONNECT TO RPI LEGO - SMARTGREENHOUSE
+//CONNECT TO SATURNO SERVER MYSQL - SMARTGREENHOUSE
+// const mysqlConnection = mysql.createConnection({
+//     host: 'localhost',
+//     port: '3306', 
+//     user: 'root',
+//     password: 'Th1nkL1nk@2021',
+//     database: 'SmartGreenHouse',
+//     multipleStatements: true
+// });
+
+// CONNECT TO RPI LEGO MYSQL - TESTING
 const mysqlConnection = mysql.createConnection({
     host: 'localhost',
     port: '3306', 
     user: 'root',
-    password: 'Th1nkL1nk@2021',
-    database: 'SmartGreenHouse',
+    password: 'thinklink2022',
+    database: 'testing',
     multipleStatements: true
 });
 
