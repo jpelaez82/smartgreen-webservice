@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const smartgreenRouter = require('./routes/smartgreen_routes');
+//const smartgreenRouter = require('./routes/smartgreen_routes');
 const sensorKakaoRouter = require('./routes/sensorkakao_routes');
 //const saturnoRuter = require('./routes/saturno_routes');
 
