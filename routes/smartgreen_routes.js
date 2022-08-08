@@ -45,6 +45,38 @@ async function getSmartGreenHouseData () {
   
 }
 
+async function getAjiPicanteData () {
+
+  let res = await axios.get('http://mercurio.thinklink.com.co:1337/ajis');
+  let response = res.data;
+
+  let last = Object.values(response)[Object.values(response).length - 1];
+
+  //console.log(last.presion); // Ultimo valor de Arduino a enviar a la RPI
+
+  let data = {
+    temp_ambiente: last.temp_ambiente,
+    hum_relativa: last.hum_relativa,
+    temp1: last.temp1,
+    temp2: last.temp2,
+    temp3: last.temp3,
+    movimiento: last.movimiento    
+  }
+
+  console.log(data);
+
+  /* ENVIO A MSYQL RPI - SmartGreenHouse */
+  console.log('Enviando a RPI database');    
+
+  let sql = "INSERT INTO aji_picante SET ?";
+  mysqlConnection.query(sql, data, function (err, result) {
+    if (err) throw err;
+    console.log("Registro guardado exitosamente, ID: " + result.insertId);
+  });
+   
+  
+}
+
 router.get('/', (req, res) => {
   mysqlConnection.query('SELECT * FROM aloe_vera', (err, rows, fields) => {
     if(!err) {
@@ -55,7 +87,8 @@ router.get('/', (req, res) => {
   });  
 });
 
-setInterval(getSmartGreenHouseData, 5000);
+//setInterval(getSmartGreenHouseData, 5000);
+setInterval(getAjiPicanteData, 15000);
 
 module.exports = router;
 
